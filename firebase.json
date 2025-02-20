@@ -1,0 +1,30 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "to-do-fb560",
+                    "appId": "1:178245935889:android:65e1b66d5d87dcbc5622b0",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "ios": {
+                "default": {
+                    "projectId": "to-do-fb560",
+                    "appId": "1:178245935889:ios:708293556cdbaf0f5622b0",
+                    "uploadDebugSymbols": false,
+                    "fileOutput": "ios/Runner/GoogleService-Info.plist"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "to-do-fb560",
+                    "configurations": {
+                        "android": "1:178245935889:android:65e1b66d5d87dcbc5622b0",
+                        "ios": "1:178245935889:ios:708293556cdbaf0f5622b0"
+                    }
+                }
+            }
+        }
+    }
+}

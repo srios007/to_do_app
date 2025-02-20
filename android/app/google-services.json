@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "178245935889",
+    "project_id": "to-do-fb560",
+    "storage_bucket": "to-do-fb560.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:178245935889:android:65e1b66d5d87dcbc5622b0",
+        "android_client_info": {
+          "package_name": "com.app.to_do_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQhijmgh8BaT6VYOuNt3EwJFIPPEyarbk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
