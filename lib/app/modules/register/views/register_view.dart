@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 
 import '../../../widgets/widgets.dart';
@@ -10,7 +11,7 @@ class RegisterView extends GetView<RegisterController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('¡Regístrate!'),
+        title: Text(AppLocalizations.of(context)!.register),
       ),
       body: SafeArea(
         bottom: false,
@@ -21,10 +22,10 @@ class RegisterView extends GetView<RegisterController> {
               child: Column(
                 children: [
                   const SizedBox(height: 30),
-                  inputsSection(),
+                  _buildInputsSection(context),
                   const SizedBox(height: 20),
                   const Spacer(flex: 2),
-                  registerButton(),
+                  _buildRegisterButton(context),
                   const SizedBox(height: 40),
                 ],
               ),
@@ -36,20 +37,20 @@ class RegisterView extends GetView<RegisterController> {
   }
 
   /// Campos de texto (correo y contraseña)
-  inputsSection() {
+  _buildInputsSection(BuildContext context) {
     return Form(
       key: controller.key,
       child: Column(
         children: [
           NormalInput(
-            titleText: 'Nombre',
-            hintText: 'Escribe tu nombre',
+            titleText: AppLocalizations.of(context)!.name,
+            hintText: AppLocalizations.of(context)!.name_hint,
             textEditingController: controller.nameController,
           ),
           const SizedBox(height: 25),
           NormalInput(
-            titleText: 'Apellido',
-            hintText: 'Escribe tu apellido',
+            titleText: AppLocalizations.of(context)!.lastname,
+            hintText: AppLocalizations.of(context)!.lastname_hint,
             textEditingController: controller.lastnameController,
           ),
           const SizedBox(height: 25),
@@ -62,13 +63,13 @@ class RegisterView extends GetView<RegisterController> {
   }
 
   /// Botón que inicia sesión
-  registerButton() {
+  _buildRegisterButton(BuildContext context) {
     return Align(
       alignment: Alignment.bottomCenter,
       child: CustomButton(
         isLoading: controller.isLoading,
         onPressed: controller.registerUser,
-        buttonText: 'Registrarme',
+        buttonText: AppLocalizations.of(context)!.register_button,
       ),
     );
   }
