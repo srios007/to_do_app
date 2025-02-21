@@ -71,7 +71,7 @@ class LoginView extends GetView<LoginController> {
             textEditingController: controller.passController,
           ),
           Padding(
-            padding: const EdgeInsets.only(left: 30, top: 10),
+            padding: const EdgeInsets.only(left: 20),
             child: GestureDetector(
               onTap: controller.goToForgotPassword,
               child: Align(
