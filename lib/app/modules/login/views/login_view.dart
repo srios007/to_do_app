@@ -59,17 +59,9 @@ class LoginView extends GetView<LoginController> {
       key: controller.key,
       child: Column(
         children: [
-          EmailInput(
-            titleText: AppLocalizations.of(context)!.email,
-            hintText: AppLocalizations.of(context)!.email_hint,
-            textEditingController: controller.emailController,
-          ),
+          EmailInput(textEditingController: controller.emailController),
           const SizedBox(height: 25),
-          PasswordInput(
-            titleText: AppLocalizations.of(context)!.password,
-            hintText: AppLocalizations.of(context)!.password_hint,
-            textEditingController: controller.passController,
-          ),
+          PasswordInput(textEditingController: controller.passController),
           Padding(
             padding: const EdgeInsets.only(left: 20),
             child: GestureDetector(

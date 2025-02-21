@@ -10,8 +10,6 @@ import '../../utils/utils.dart';
 class PasswordInput extends StatelessWidget {
   const PasswordInput({
     super.key,
-    required this.hintText,
-    required this.titleText,
     required this.textEditingController,
     this.helperText = '',
     this.validator,
@@ -20,14 +18,12 @@ class PasswordInput extends StatelessWidget {
     this.inputFormatters,
   });
 
-  final String hintText;
   final String helperText;
   final TextEditingController textEditingController;
   final String? Function(String?)? validator;
   final TextInputType? keyboardType;
   final TextCapitalization? textCapitalization;
   final List<TextInputFormatter>? inputFormatters;
-  final String titleText;
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +34,7 @@ class PasswordInput extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            titleText,
+            AppLocalizations.of(context)!.password,
             style: const TextStyle(
               color: Palette.mainColor,
               fontSize: 16,
@@ -58,7 +54,7 @@ class PasswordInput extends StatelessWidget {
                     inputFormatters: inputFormatters ?? [],
                     decoration: InputDecoration(
                         helperText: helperText,
-                        hintText: hintText,
+                        hintText: AppLocalizations.of(context)!.password_hint,
                         errorStyle: Styles.errorStyle,
                         enabledBorder: Styles().borderTextField,
                         focusedBorder: Styles().borderTextField,

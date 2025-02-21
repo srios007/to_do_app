@@ -7,8 +7,6 @@ import '../../utils/utils.dart';
 class EmailInput extends StatelessWidget {
   const EmailInput({
     super.key,
-    required this.titleText,
-    required this.hintText,
     required this.textEditingController,
     this.helperText = '',
     this.border,
@@ -16,8 +14,6 @@ class EmailInput extends StatelessWidget {
     this.width,
   });
 
-  final String titleText;
-  final String hintText;
   final String helperText;
   final TextEditingController textEditingController;
   final InputBorder? border;
@@ -30,7 +26,7 @@ class EmailInput extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          titleText,
+          AppLocalizations.of(context)!.email,
           style: const TextStyle(
             color: Palette.mainColor,
             fontSize: 16,
@@ -43,7 +39,7 @@ class EmailInput extends StatelessWidget {
             style: textStyle,
             decoration: InputDecoration(
               helperText: helperText,
-              hintText: hintText,
+              hintText: AppLocalizations.of(context)!.email_hint,
               errorStyle: Styles.errorStyle,
               enabledBorder: Styles().borderTextField,
               focusedBorder: Styles().borderTextField,

@@ -44,11 +44,7 @@ class ForgotPasswordView extends GetView<ForgotPasswordController> {
       key: controller.key,
       child: Column(
         children: [
-          EmailInput(
-            titleText: AppLocalizations.of(context)!.email,
-            hintText: AppLocalizations.of(context)!.email_hint,
-            textEditingController: controller.emailController,
-          ),
+          EmailInput(textEditingController: controller.emailController),
           const SizedBox(height: 25),
         ],
       ),
