@@ -26,5 +26,5 @@
   "success": "Éxito",
   "unknown_error": "Ocurrió un error desconocido.",
   "weak_password": "La contraseña proporcionada es demasiado débil.",
-  "wrong_password": "Contraseña incorrecta proporcionada para ese usuario."
+  "wrong_password": "Por favor, revisa tu correo y contraseña."
 }

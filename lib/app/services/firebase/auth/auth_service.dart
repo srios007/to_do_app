@@ -40,21 +40,10 @@ class AuthService extends GetxService {
         password: password,
       );
       return userCredential.user;
-    } on FirebaseAuthException catch (e) {
-      switch (e.code) {
-        case 'user-not-found':
-          CustomSnackBars.showErrorSnackBar(
-            AppLocalizations.of(Get.context!)!.no_user_found,
-          );
-        case 'wrong-password':
-          CustomSnackBars.showErrorSnackBar(
-            AppLocalizations.of(Get.context!)!.wrong_password,
-          );
-        default:
-          CustomSnackBars.showErrorSnackBar(
-            AppLocalizations.of(Get.context!)!.unknown_error,
-          );
-      }
+    } on FirebaseAuthException catch (_) {
+      CustomSnackBars.showErrorSnackBar(
+        AppLocalizations.of(Get.context!)!.wrong_password,
+      );
       return null;
     } catch (e) {
       CustomSnackBars.showErrorSnackBar(e.toString());
