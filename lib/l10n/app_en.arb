@@ -1,5 +1,7 @@
 {
+  "all":"All",
   "app_title": "To Do App",
+  "completed":"Completed",
   "email_hint": "Enter your email",
   "email_in_use": "The email address is already in use by another account.",
   "email": "Email",
@@ -12,6 +14,7 @@
   "name": "Name",
   "no_account": "Don't have an account? ",
   "no_user_found": "No user found for that email.",
+  "notCompleted":"Not completed",
   "password_hint": "Enter your password",
   "password_reset_email_sent": "Password reset email sent",
   "password": "Password",
@@ -22,8 +25,10 @@
   "register_button": "Register",
   "register": "Register!",
   "send_recovery_email": "Send Recovery Email",
+  "sign_out": "Sign out",
   "signed_out": "Signed out",
   "success": "Success",
+  "tasks":"Tasks",
   "unknown_error": "An unknown error occurred.",
   "weak_password": "The password provided is too weak.",
   "wrong_password": "Please check your email and password."

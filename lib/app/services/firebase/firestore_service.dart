@@ -64,4 +64,22 @@ class FirestoreService extends GetxService {
       return false;
     }
   }
+
+  /// Get documents by field
+  Future<List<Map<String, dynamic>>> getCollectionById({
+    required String collectionName,
+    required String value,
+  }) async {
+    try {
+      final QuerySnapshot querySnapshot = await _firestore
+          .collection(collectionName)
+          .where('id', isEqualTo: value)
+          .get();
+      return querySnapshot.docs
+          .map((doc) => doc.data()! as Map<String, dynamic>)
+          .toList();
+    } catch (e) {
+      return [];
+    }
+  }
 }

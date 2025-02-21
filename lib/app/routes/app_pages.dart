@@ -28,5 +28,10 @@ class AppPages {
       page: () => const ForgotPasswordView(),
       binding: ForgotPasswordBinding(),
     ),
+    GetPage(
+      name: _Paths.NEW_TASK,
+      page: () => const NewTaskView(),
+      binding: NewTaskBinding(),
+    ),
   ];
 }

@@ -1,5 +1,7 @@
 {
+  "all":"Todas",
   "app_title": "To Do App",
+  "completed":"Completadas",
   "email_hint": "Escribe tu correo",
   "email_in_use": "La dirección de correo electrónico ya está en uso por otra cuenta.",
   "email": "Correo",
@@ -12,6 +14,7 @@
   "name": "Nombre",
   "no_account": "¿No tienes una cuenta? ",
   "no_user_found": "No se encontró un usuario con ese correo electrónico.",
+  "notCompleted":"No completadas",
   "password_hint": "Escribe tu contraseña",
   "password_reset_email_sent": "Correo electrónico de restablecimiento de contraseña enviado",
   "password": "Contraseña",
@@ -22,8 +25,10 @@
   "register_button": "Registrarme",
   "register": "¡Regístrate!",
   "send_recovery_email": "Enviar correo de recuperación",
+  "sign_out": "Cerrar sesión",
   "signed_out": "Sesión cerrada",
   "success": "Éxito",
+  "tasks":"Tareas",
   "unknown_error": "Ocurrió un error desconocido.",
   "weak_password": "La contraseña proporcionada es demasiado débil.",
   "wrong_password": "Por favor, revisa tu correo y contraseña."

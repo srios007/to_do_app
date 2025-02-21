@@ -1,23 +1,24 @@
 import 'package:get/get.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../models/models.dart';
+import '../../../services/firebase/auth/auth_service.dart';
+import '../../../services/firebase/model/user_service.dart';
 
 class HomeController extends GetxController {
-  //TODO: Implement HomeController
-
-  final count = 0.obs;
+  final userService = Get.find<UserService>();
+  final authService = Get.find<AuthService>();
+  final user = Rxn<UserModel?>();
+  final filter = AppLocalizations.of(Get.context!)!.all.obs;
+  final tasks = <TaskModel>[].obs;
   @override
   void onInit() {
     super.onInit();
+    getUser();
   }
 
-  @override
-  void onReady() {
-    super.onReady();
+  Future<void> getUser() async {
+    user.value =
+        await userService.getUserById(authService.firebaseUser.value!.uid);
   }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

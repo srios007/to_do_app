@@ -6,7 +6,6 @@ import '../firestore_service.dart';
 class UserService extends GetxService {
   final _firestoreService = Get.put(FirestoreService());
   final userReference = FirestoreReferences.users;
-  final firebaseUser = Rxn<UserModel?>();
 
   /// Create a new user
   Future<bool> createUser(UserModel user) async {
@@ -21,7 +20,6 @@ class UserService extends GetxService {
   Future<UserModel?> getUserById(String id) async {
     final data = await _firestoreService.getDocumentById(userReference, id);
     if (data != null) {
-      firebaseUser.value = UserModel.fromJson(data);
       return UserModel.fromJson(data);
     }
     return null;
