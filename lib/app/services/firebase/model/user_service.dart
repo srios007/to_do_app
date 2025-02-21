@@ -4,7 +4,7 @@ import '../../../utils/utils.dart';
 import '../firestore_service.dart';
 
 class UserService extends GetxService {
-  final FirestoreService _firestoreService = Get.find<FirestoreService>();
+  final _firestoreService = Get.put(FirestoreService());
   final userReference = FirestoreReferences.users;
 
   /// Create a new user

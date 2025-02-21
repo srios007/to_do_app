@@ -9,7 +9,7 @@ import '../../services.dart';
 
 class AuthService extends GetxService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-  final userService = Get.find<UserService>();
+  final userService = Get.put(UserService());
   Rxn<User?> firebaseUser = Rxn<User?>();
 
   @override
