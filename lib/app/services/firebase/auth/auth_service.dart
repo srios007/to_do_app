@@ -2,11 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 
+import '../../../models/user/user_model.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/custom_snackbars.dart';
+import '../../services.dart';
 
 class AuthService extends GetxService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+  final userService = Get.find<UserService>();
   Rxn<User?> firebaseUser = Rxn<User?>();
 
   @override
@@ -60,15 +63,19 @@ class AuthService extends GetxService {
   }
 
   /// Register with email and password
-  Future<User?> registerWithEmailAndPassword(
-      String email, String password) async {
+  Future<bool> registerWithEmailAndPassword({
+    required UserModel user,
+    required String password,
+  }) async {
     try {
       final UserCredential userCredential =
           await _auth.createUserWithEmailAndPassword(
-        email: email,
+        email: user.email!,
         password: password,
       );
-      return userCredential.user;
+      user.id = userCredential.user!.uid;
+      await userService.createUser(user);
+      return true;
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case 'email-already-in-use':
@@ -84,10 +91,10 @@ class AuthService extends GetxService {
             e.message ?? AppLocalizations.of(Get.context!)!.unknown_error,
           );
       }
-      return null;
+      return false;
     } catch (e) {
       CustomSnackBars.showErrorSnackBar(e.toString());
-      return null;
+      return false;
     }
   }
 
