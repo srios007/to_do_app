@@ -30,8 +30,9 @@ class TaskModelBuilder {
     return this;
   }
 
-  TaskModelBuilder setIsCompleted(bool isCompleted) {
-    _isCompleted!.value = isCompleted;
+  TaskModelBuilder setIsCompleted(RxBool isCompleted) {
+    _isCompleted = RxBool(false);
+    _isCompleted!.value = isCompleted.value;
     return this;
   }
 

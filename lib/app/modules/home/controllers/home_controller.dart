@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 
@@ -64,6 +66,7 @@ class HomeController extends GetxController {
 
   /// Elimina una tarea
   Future<void> deleteTask(String taskId) async {
+    log('Task: $taskId');
     await taskService.deleteTask(taskId);
     tasks.removeWhere((task) => task.id == taskId);
   }

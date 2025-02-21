@@ -5,15 +5,18 @@ import '../../../models/models.dart';
 import '../../../services/services.dart';
 
 class NewTaskController extends GetxController {
-  final formKey = GlobalKey<FormState>();
-  final titleController = TextEditingController();
-  final descriptionController = TextEditingController();
-  final taskService = Get.put(TaskService());
   final authService = Get.find<AuthService>();
+  final descriptionController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
+  final isLoading = false.obs;
+  final taskService = Get.put(TaskService());
+  final titleController = TextEditingController();
 
-  void submitForm() {
+  Future<void> submitForm() async {
     if (formKey.currentState!.validate()) {
-      _createTask();
+      isLoading.value = true;
+      await _createTask();
+      isLoading.value = false;
       Get.back();
     }
   }
@@ -24,7 +27,7 @@ class NewTaskController extends GetxController {
         .setCreatedAt(DateTime.now())
         .setDescription(descriptionController.text)
         .setName(titleController.text)
-        .setIsCompleted(false)
+        .setIsCompleted(RxBool(false))
         .setUserId(authService.firebaseUser.value!.uid)
         .build());
   }

@@ -13,7 +13,7 @@ class LoadingWidget extends StatelessWidget {
         child: LoadingAnimationWidget.twistingDots(
           leftDotColor: Colors.green,
           rightDotColor: Palette.mainColor,
-          size: 20,
+          size: 30,
         ),
       ),
     );

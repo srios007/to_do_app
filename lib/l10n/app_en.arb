@@ -17,6 +17,7 @@
   "name_hint": "Enter your name",
   "name": "Name",
   "no_account": "Don't have an account? ",
+  "no_task": "No tasks to show",
   "no_user_found": "No user found for that email.",
   "notCompleted":"Not completed",
   "older": "Más antiguas",

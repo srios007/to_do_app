@@ -22,6 +22,6 @@ Map<String, dynamic> _$TaskModelToJson(TaskModel instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
       'description': instance.description,
-      'isCompleted': instance.isCompleted,
+      'isCompleted': instance.isCompleted!.value,
       'userId': instance.userId,
     };

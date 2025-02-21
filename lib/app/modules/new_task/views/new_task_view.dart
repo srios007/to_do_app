@@ -34,7 +34,7 @@ class NewTaskView extends GetView<NewTaskController> {
                     onPressed: controller.submitForm,
                     buttonText:
                         AppLocalizations.of(context)!.create_task_button,
-                    isLoading: false.obs,
+                    isLoading: controller.isLoading,
                   ),
                   const SizedBox(height: 32.0),
                 ],
