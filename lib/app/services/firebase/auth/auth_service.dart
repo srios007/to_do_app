@@ -3,7 +3,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
-import '../../../widgets/widgets.dart';
+import '../../../widgets/custom_snackbars.dart';
 
 class AuthService extends GetxService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -72,18 +72,21 @@ class AuthService extends GetxService {
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case 'email-already-in-use':
-          Get.snackbar(
-              'Error', AppLocalizations.of(Get.context!)!.email_in_use);
+          CustomSnackBars.showErrorSnackBar(
+            AppLocalizations.of(Get.context!)!.email_in_use,
+          );
         case 'weak-password':
-          Get.snackbar(
-              'Error', AppLocalizations.of(Get.context!)!.weak_password);
+          CustomSnackBars.showErrorSnackBar(
+            AppLocalizations.of(Get.context!)!.weak_password,
+          );
         default:
-          Get.snackbar('Error',
-              e.message ?? AppLocalizations.of(Get.context!)!.unknown_error);
+          CustomSnackBars.showErrorSnackBar(
+            e.message ?? AppLocalizations.of(Get.context!)!.unknown_error,
+          );
       }
       return null;
     } catch (e) {
-      Get.snackbar('Error', e.toString());
+      CustomSnackBars.showErrorSnackBar(e.toString());
       return null;
     }
   }
@@ -92,19 +95,23 @@ class AuthService extends GetxService {
   Future<void> resetPassword(String email) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
-      Get.snackbar('Success',
-          AppLocalizations.of(Get.context!)!.password_reset_email_sent);
+      Get.back();
+      CustomSnackBars.showSuccessSnackBar(
+        AppLocalizations.of(Get.context!)!.password_reset_email_sent,
+      );
     } on FirebaseAuthException catch (e) {
       switch (e.code) {
         case 'user-not-found':
-          Get.snackbar(
-              'Error', AppLocalizations.of(Get.context!)!.no_user_found);
+          CustomSnackBars.showErrorSnackBar(
+            AppLocalizations.of(Get.context!)!.no_user_found,
+          );
         default:
-          Get.snackbar('Error',
-              e.message ?? AppLocalizations.of(Get.context!)!.unknown_error);
+          CustomSnackBars.showErrorSnackBar(
+            e.message ?? AppLocalizations.of(Get.context!)!.unknown_error,
+          );
       }
     } catch (e) {
-      Get.snackbar('Error', e.toString());
+      CustomSnackBars.showErrorSnackBar(e.toString());
     }
   }
 
@@ -113,9 +120,11 @@ class AuthService extends GetxService {
     try {
       await _auth.signOut();
       Get.offAllNamed(Routes.LOGIN);
-      Get.snackbar('Success', AppLocalizations.of(Get.context!)!.signed_out);
+      CustomSnackBars.showSuccessSnackBar(
+        AppLocalizations.of(Get.context!)!.signed_out,
+      );
     } catch (e) {
-      Get.snackbar('Error', e.toString());
+      CustomSnackBars.showErrorSnackBar(e.toString());
     }
   }
 }
