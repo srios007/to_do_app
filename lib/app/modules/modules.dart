@@ -10,4 +10,3 @@ export 'login/views/login_view.dart';
 export 'register/bindings/register_binding.dart';
 export 'register/controllers/register_controller.dart';
 export 'register/views/register_view.dart';
-export 'register/widgets/check_accept.dart';

@@ -29,7 +29,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Obx(
       () => SizedBox(
-        width: width ?? Get.width - 60,
+        width: width ?? Get.width - 40,
         height: height ?? 55,
         child: MaterialButton(
           color: color ?? Palette.mainColor,
