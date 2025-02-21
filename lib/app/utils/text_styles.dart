@@ -10,20 +10,20 @@ class Styles {
   Styles._internal();
   static final Styles _instance = Styles._internal();
 
-  TextStyle tittleRegister = const TextStyle(
+  static const TextStyle tittleRegister =  TextStyle(
     fontSize: 24.0,
     fontWeight: FontWeight.bold,
   );
-  TextStyle errorStyle = const TextStyle(
+   static const TextStyle errorStyle = TextStyle(
     fontSize: 14,
     color: Colors.red,
     fontWeight: FontWeight.w400,
   );
-  TextStyle requiredRegister = const TextStyle(
+   static const TextStyle requiredRegister = TextStyle(
     fontSize: 20.0,
     fontWeight: FontWeight.w700,
   );
-  TextStyle hintTextStyleRegister = const TextStyle(
+   static const TextStyle hintTextStyleRegister = TextStyle(
     fontSize: 13,
     fontWeight: FontWeight.w300,
   );

@@ -12,7 +12,7 @@ class BorderStyles {
 
   InputDecoration inputDecorationGlobal = InputDecoration(
     border: Styles().borderTextField,
-    errorStyle: Styles().errorStyle,
+    errorStyle: Styles.errorStyle,
     enabledBorder: Styles().borderTextField,
     disabledBorder: Styles().borderTextField,
     focusedBorder: Styles().borderTextField,
