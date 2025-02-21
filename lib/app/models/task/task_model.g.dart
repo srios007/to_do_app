@@ -10,10 +10,11 @@ TaskModel _$TaskModelFromJson(Map<String, dynamic> json) => TaskModel(
       id: json['id'] as String?,
       name: json['name'] as String?,
       description: json['description'] as String?,
-      isCompleted: json['isCompleted'] as bool?,
+      isCompleted: RxBool(json['isCompleted'] as bool),
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
+      userId: json['userId'] as String?,
     );
 
 Map<String, dynamic> _$TaskModelToJson(TaskModel instance) => <String, dynamic>{
@@ -22,4 +23,5 @@ Map<String, dynamic> _$TaskModelToJson(TaskModel instance) => <String, dynamic>{
       'name': instance.name,
       'description': instance.description,
       'isCompleted': instance.isCompleted,
+      'userId': instance.userId,
     };

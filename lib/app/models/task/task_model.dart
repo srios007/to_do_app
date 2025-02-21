@@ -1,3 +1,4 @@
+import 'package:get/get.dart';
 import 'package:json_annotation/json_annotation.dart';
 import 'task_model_builder.dart';
 
@@ -6,17 +7,19 @@ part 'task_model.g.dart';
 @JsonSerializable()
 class TaskModel {
   DateTime? createdAt;
+  RxBool? isCompleted;
+  String? description;
   String? id;
   String? name;
-  String? description;
-  bool? isCompleted;
+  String? userId;
 
   TaskModel({
-    this.id,
-    this.name,
-    this.description,
-    this.isCompleted,
     this.createdAt,
+    this.description,
+    this.id,
+    this.isCompleted,
+    this.name,
+    this.userId,
   });
 
   factory TaskModel.fromJson(Map<String, dynamic> json) =>

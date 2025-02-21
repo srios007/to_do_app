@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../models/models.dart';
 import '../../modules.dart';
@@ -31,27 +32,25 @@ class TaskContainer extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Checkbox(
+          Obx(() => Checkbox(
               activeColor: Colors.blueAccent,
-              value: task.isCompleted,
+              value: task.isCompleted!.value,
               onChanged: (bool? value) async {
-                task.isCompleted = value ?? false;
+                task.isCompleted!.value = value ?? false;
                 controller.updateTask(task);
-              }),
+              })),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 task.name!,
-                style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
+                style: const TextStyle(fontWeight: FontWeight.w600),
               ),
               SizedBox(
                 width: MediaQuery.of(context).size.width - 140,
                 child: Text(
                   task.description!,
-                  style: const TextStyle(fontWeight: FontWeight.w400),
+                  style: const TextStyle(fontWeight: FontWeight.w300),
                 ),
               ),
             ],

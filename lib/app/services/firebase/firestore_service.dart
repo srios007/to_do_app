@@ -6,9 +6,12 @@ class FirestoreService extends GetxService {
 
   /// Create a new document
   Future<bool> createDocument(
-      String collectionName, Map<String, dynamic> data) async {
+    String collectionName,
+    Map<String, dynamic> data,
+  ) async {
     try {
-      await _firestore.collection(collectionName).add(data);
+      final docRef = await _firestore.collection(collectionName).add(data);
+      await docRef.update({'id': docRef.id});
       return true;
     } catch (e) {
       return false;
@@ -69,11 +72,12 @@ class FirestoreService extends GetxService {
   Future<List<Map<String, dynamic>>> getCollectionById({
     required String collectionName,
     required String value,
+    String field = 'id',
   }) async {
     try {
       final QuerySnapshot querySnapshot = await _firestore
           .collection(collectionName)
-          .where('id', isEqualTo: value)
+          .where(field, isEqualTo: value)
           .get();
       return querySnapshot.docs
           .map((doc) => doc.data()! as Map<String, dynamic>)

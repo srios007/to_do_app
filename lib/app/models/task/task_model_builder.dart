@@ -1,11 +1,14 @@
+import 'package:get/get.dart';
+
 import 'task_model.dart';
 
 class TaskModelBuilder {
   DateTime? _createdAt;
+  RxBool? _isCompleted;
+  String? _description;
   String? _id;
   String? _name;
-  String? _description;
-  bool? _isCompleted;
+  String? _userId;
 
   TaskModelBuilder setCreatedAt(DateTime createdAt) {
     _createdAt = createdAt;
@@ -28,7 +31,12 @@ class TaskModelBuilder {
   }
 
   TaskModelBuilder setIsCompleted(bool isCompleted) {
-    _isCompleted = isCompleted;
+    _isCompleted!.value = isCompleted;
+    return this;
+  }
+
+  TaskModelBuilder setUserId(String userId) {
+    _userId = userId;
     return this;
   }
 
@@ -39,6 +47,7 @@ class TaskModelBuilder {
       name: _name,
       description: _description,
       isCompleted: _isCompleted,
+      userId: _userId,
     );
   }
 }

@@ -6,6 +6,7 @@ import '../firestore_service.dart';
 class TaskService extends GetxService {
   final FirestoreService _firestoreService = Get.put(FirestoreService());
   final taskReference = FirestoreReferences.tasks;
+
   /// Create a new task
   Future<bool> createTask(TaskModel task) async {
     return _firestoreService.createDocument(
@@ -33,6 +34,7 @@ class TaskService extends GetxService {
     final querySnapshot = await _firestoreService.getCollectionById(
       collectionName: taskReference,
       value: userId,
+      field: 'userId',
     );
     return querySnapshot.map((doc) => TaskModel.fromJson(doc)).toList();
   }
