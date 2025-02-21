@@ -1,3 +1,20 @@
 {
-    "accept": "Acepto "
-}
+    "app_title": "To Do App",
+    "email_hint": "Escribe tu correo",
+    "email_in_use": "La dirección de correo electrónico ya está en uso por otra cuenta.",
+    "email": "Correo",
+    "error": "Error",
+    "forgot_password": "Olvidé mi contraseña",
+    "login": "Iniciar sesión",
+    "no_account": "¿No tienes una cuenta? ",
+    "no_user_found": "No se encontró un usuario con ese correo electrónico.",
+    "password_hint": "Escribe tu contraseña",
+    "password_reset_email_sent": "Correo electrónico de restablecimiento de contraseña enviado",
+    "password": "Contraseña",
+    "register": "Regístrate",
+    "signed_out": "Sesión cerrada",
+    "success": "Éxito",
+    "unknown_error": "Ocurrió un error desconocido.",
+    "weak_password": "La contraseña proporcionada es demasiado débil.",
+    "wrong_password": "Contraseña incorrecta proporcionada para ese usuario."
+  }

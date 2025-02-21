@@ -1,3 +1,20 @@
 {
-  "accept": "I accept "
+  "app_title": "To Do App",
+  "email_hint": "Enter your email",
+  "email_in_use": "The email address is already in use by another account.",
+  "email": "Email",
+  "error": "Error",
+  "forgot_password": "Forgot my password",
+  "login": "Login",
+  "no_account": "Don't have an account? ",
+  "no_user_found": "No user found for that email.",
+  "password_hint": "Enter your password",
+  "password_reset_email_sent": "Password reset email sent",
+  "password": "Password",
+  "register": "Register",
+  "signed_out": "Signed out",
+  "success": "Success",
+  "unknown_error": "An unknown error occurred.",
+  "weak_password": "The password provided is too weak.",
+  "wrong_password": "Wrong password provided for that user."
 }
