@@ -27,47 +27,25 @@ class HomeView extends GetView<HomeController> {
 
   Widget _buildBody(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      child: Stack(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height - 80,
-            // child: Visibility(child: ListView.builder(
-            //         itemCount: filteredTasks.length,
-            //         itemBuilder: (context, index) {
-            //           final task = filteredTasks[index];
-            //           return Padding(
-            //             padding: EdgeInsets.only(
-            //               bottom: index == filteredTasks.length - 1 ? 80 : 0,
-            //             ),
-            //             child: TaskContainer(
-            //               task: task,
-            //               onChange: () async => await taskProvider.updateTask(
-            //                 task,
-            //                 context,
-            //               ),
-            //               onDelete: () async => await taskProvider.removeTask(
-            //                 task,
-            //                 context,
-            //               ),
-            //             ),
-            //           );
-            //         },
-            // )),
-          ),
-        ],
+      height: Get.height,
+      child: SizedBox(
+        height: Get.height - 80,
+        child: Visibility(
+            child: ListView.builder(
+          itemCount: controller.filterTasks().length,
+          itemBuilder: (context, index) {
+            final task = controller.filterTasks()[index];
+            return Padding(
+              padding: EdgeInsets.only(
+                bottom: index == controller.filterTasks().length - 1 ? 80 : 0,
+              ),
+              child: TaskContainer(task: task, controller: controller),
+            );
+          },
+        )),
       ),
     );
   }
-
-  // List<TaskModel> _filterTasks(List<TaskModel> tasks) {
-  //   if (controller.filter.value== 'Completed') {
-  //     return tasks.where((task) => task.isCompleted!).toList();
-  //   } else if (controller.filter.value== 'Not Completed') {
-  //     return tasks.where((task) => !task.isCompleted!).toList();
-  //   }
-  //   return tasks;
-  // }
 
   FloatingActionButton _buildFloatingActionButton(BuildContext context) {
     return FloatingActionButton(
