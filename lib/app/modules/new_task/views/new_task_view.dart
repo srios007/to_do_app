@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 
 import '../../../widgets/widgets.dart';
@@ -11,35 +11,33 @@ class NewTaskView extends GetView<NewTaskController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Create task',
-          style: TextStyle(fontWeight: FontWeight.w600),
+        title: Text(
+          AppLocalizations.of(context)!.create_task,
+          style: const TextStyle(fontWeight: FontWeight.w600),
         ),
       ),
       body: CustomScrollView(
         slivers: [
           SliverFillRemaining(
             hasScrollBody: false,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16.0),
-              child: Form(
-                key: controller.formKey,
-                child: Column(
-                  children: [
-                    const SizedBox(height: 16.0),
-                    _buildTitleField(),
-                    const SizedBox(height: 16.0),
-                    _buildDescriptionField(),
-                    const SizedBox(height: 16.0),
-                    const Spacer(),
-                    CustomButton(
-                      onPressed: controller.submitForm,
-                      buttonText: 'Create task',
-                      isLoading: false.obs,
-                    ),
-                    const SizedBox(height: 32.0),
-                  ],
-                ),
+            child: Form(
+              key: controller.formKey,
+              child: Column(
+                children: [
+                  const SizedBox(height: 16.0),
+                  _buildTitleField(context),
+                  const SizedBox(height: 16.0),
+                  _buildDescriptionField(context),
+                  const SizedBox(height: 16.0),
+                  const Spacer(),
+                  CustomButton(
+                    onPressed: controller.submitForm,
+                    buttonText:
+                        AppLocalizations.of(context)!.create_task_button,
+                    isLoading: false.obs,
+                  ),
+                  const SizedBox(height: 32.0),
+                ],
               ),
             ),
           ),
@@ -48,31 +46,17 @@ class NewTaskView extends GetView<NewTaskController> {
     );
   }
 
-  Widget _buildTitleField() {
-    return TextFormField(
-      controller: controller.titleController,
-      decoration: const InputDecoration(
-        labelText: 'Title',
-        border: OutlineInputBorder(),
-      ),
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Please enter a title';
-        }
-        return null;
-      },
+  Widget _buildTitleField(BuildContext context) {
+    return NormalInput(
+      textEditingController: controller.titleController,
+      titleText: AppLocalizations.of(context)!.title,
     );
   }
 
-  Widget _buildDescriptionField() {
-    return TextFormField(
-      controller: controller.descriptionController,
-      decoration: const InputDecoration(
-        alignLabelWithHint: true,
-        labelText: 'Description',
-        border: OutlineInputBorder(),
-      ),
-      maxLines: 3,
+  Widget _buildDescriptionField(BuildContext context) {
+    return NormalInput(
+      textEditingController: controller.descriptionController,
+      titleText: AppLocalizations.of(context)!.description,
     );
   }
 }

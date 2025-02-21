@@ -2,6 +2,9 @@
   "all": "Todas",
   "app_title": "To Do App",
   "completed": "Completadas",
+  "create_task_button": "Crear",
+  "create_task": "Crear tarea",
+  "description": "Descripción",
   "email_hint": "Escribe tu correo",
   "email_in_use": "La dirección de correo electrónico ya está en uso por otra cuenta.",
   "email": "Correo",
@@ -31,6 +34,7 @@
   "signed_out": "Sesión cerrada",
   "success": "Éxito",
   "tasks": "Tareas",
+  "title": "Título",
   "unknown_error": "Ocurrió un error desconocido.",
   "weak_password": "La contraseña proporcionada es demasiado débil.",
   "wrong_password": "Por favor, revisa tu correo y contraseña."

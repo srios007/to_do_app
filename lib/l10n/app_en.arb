@@ -2,6 +2,9 @@
   "all":"All",
   "app_title": "To Do App",
   "completed":"Completed",
+  "create_task_button": "Create",
+  "create_task": "Create task",
+  "description": "Description",
   "email_hint": "Enter your email",
   "email_in_use": "The email address is already in use by another account.",
   "email": "Email",
@@ -31,6 +34,7 @@
   "signed_out": "Signed out",
   "success": "Success",
   "tasks":"Tasks",
+  "title": "Title",
   "unknown_error": "An unknown error occurred.",
   "weak_password": "The password provided is too weak.",
   "wrong_password": "Please check your email and password."
