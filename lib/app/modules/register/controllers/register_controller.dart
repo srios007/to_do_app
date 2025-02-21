@@ -16,7 +16,7 @@ class RegisterController extends GetxController {
   final passController = TextEditingController();
 
   /// Crea el usuario
-  _buildUser() {
+  UserModel _buildUser() {
     return UserModel.builder
         .setEmail(emailController.text)
         .setLastname(lastnameController.text)
@@ -26,15 +26,15 @@ class RegisterController extends GetxController {
   }
 
   /// Registrar en firebase auth
-  _signUp() async {
-    await authService.registerWithEmailAndPassword(
+  Future<bool> _signUp() async {
+    return authService.registerWithEmailAndPassword(
       user: _buildUser(),
       password: passController.text,
     );
   }
 
   /// Registra al usuario
-  registerUser() async {
+  Future<void> registerUser() async {
     if (key.currentState!.validate()) {
       isLoading.value = true;
       final result = await _signUp();

@@ -10,14 +10,12 @@ class EmailInput extends StatelessWidget {
     required this.textEditingController,
     this.helperText = '',
     this.border,
-    this.textStyle,
     this.width,
   });
 
   final String helperText;
   final TextEditingController textEditingController;
   final InputBorder? border;
-  final TextStyle? textStyle;
   final double? width;
 
   @override
@@ -27,16 +25,12 @@ class EmailInput extends StatelessWidget {
       children: [
         Text(
           AppLocalizations.of(context)!.email,
-          style: const TextStyle(
-            color: Palette.mainColor,
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
+          style: Styles.titleFieldStyle,
         ),
         SizedBox(
           width: width ?? Get.width - 40,
           child: TextFormField(
-            style: textStyle,
+            style: Styles.fieldStyle,
             decoration: InputDecoration(
               helperText: helperText,
               hintText: AppLocalizations.of(context)!.email_hint,
@@ -45,6 +39,7 @@ class EmailInput extends StatelessWidget {
               focusedBorder: Styles().borderTextField,
               errorBorder: Styles().borderTextField,
               focusedErrorBorder: Styles().borderTextField,
+              hintStyle: Styles().hintStyle,
             ),
             controller: textEditingController,
             validator: (String? _) {

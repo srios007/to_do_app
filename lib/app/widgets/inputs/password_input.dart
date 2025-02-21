@@ -35,11 +35,7 @@ class PasswordInput extends StatelessWidget {
         children: [
           Text(
             AppLocalizations.of(context)!.password,
-            style: const TextStyle(
-              color: Palette.mainColor,
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
+            style: Styles.titleFieldStyle,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,6 +44,7 @@ class PasswordInput extends StatelessWidget {
                 () => SizedBox(
                   width: Get.width - 40,
                   child: TextFormField(
+                    style: Styles.fieldStyle,
                     obscureText: !showPassword.value,
                     textCapitalization:
                         textCapitalization ?? TextCapitalization.none,
@@ -60,6 +57,7 @@ class PasswordInput extends StatelessWidget {
                         focusedBorder: Styles().borderTextField,
                         errorBorder: Styles().borderTextField,
                         focusedErrorBorder: Styles().borderTextField,
+                        hintStyle: Styles().hintStyle,
                         suffixIcon: IconButton(
                           onPressed: () => showPassword.toggle(),
                           icon: showPassword.value

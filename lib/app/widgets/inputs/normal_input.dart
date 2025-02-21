@@ -38,11 +38,7 @@ class NormalInput extends StatelessWidget {
         children: [
           Text(
             titleText,
-            style: const TextStyle(
-              color: Palette.mainColor,
-              fontSize: 16,
-              fontWeight: FontWeight.w600,
-            ),
+            style: Styles.titleFieldStyle,
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -50,6 +46,7 @@ class NormalInput extends StatelessWidget {
               SizedBox(
                 width: Get.width - 40,
                 child: TextFormField(
+                  style: Styles.fieldStyle,
                   textCapitalization:
                       textCapitalization ?? TextCapitalization.none,
                   inputFormatters: inputFormatters ?? [],
@@ -62,6 +59,7 @@ class NormalInput extends StatelessWidget {
                     focusedBorder: Styles().borderTextField,
                     errorBorder: Styles().borderTextField,
                     focusedErrorBorder: Styles().borderTextField,
+                    hintStyle: Styles().hintStyle,
                   ),
                   controller: textEditingController,
                   validator: validator ??

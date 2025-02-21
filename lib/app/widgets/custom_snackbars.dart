@@ -5,18 +5,20 @@ import 'package:get/get.dart';
 class CustomSnackBars {
   static showSuccessSnackBar(String message) => Get.showSnackbar(
         GetSnackBar(
-          title: AppLocalizations.of(Get.context!)!.success,
-          message: message,
-          duration: const Duration(seconds: 3),
           backgroundColor: Colors.green,
+          duration: const Duration(seconds: 3),
+          message: message,
+          snackPosition: SnackPosition.TOP,
+          title: AppLocalizations.of(Get.context!)!.success,
         ),
       );
   static showErrorSnackBar(String message) => Get.showSnackbar(
         GetSnackBar(
-          title: 'Error',
-          message: message,
-          duration: const Duration(seconds: 3),
           backgroundColor: Colors.red,
+          duration: const Duration(seconds: 3),
+          message: message,
+          snackPosition: SnackPosition.TOP,
+          title: 'Error',
         ),
       );
 }
