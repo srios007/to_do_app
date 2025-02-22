@@ -15,6 +15,7 @@ TaskModel _$TaskModelFromJson(Map<String, dynamic> json) => TaskModel(
           ? null
           : DateTime.parse(json['createdAt'] as String),
       translatedDescription: json['translatedDescription'] as String?,
+      translatedName: json['translatedName'] as String?,
       userId: json['userId'] as String?,
     );
 
@@ -25,5 +26,6 @@ Map<String, dynamic> _$TaskModelToJson(TaskModel instance) => <String, dynamic>{
       'isCompleted': instance.isCompleted!.value,
       'name': instance.name,
       'translatedDescription': instance.translatedDescription,
+      'translatedName': instance.translatedName,
       'userId': instance.userId,
     };

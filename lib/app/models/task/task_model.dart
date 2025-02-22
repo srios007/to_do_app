@@ -12,6 +12,7 @@ class TaskModel {
   String? id;
   String? name;
   String? translatedDescription;
+  String? translatedName;
   String? userId;
 
   TaskModel({
@@ -21,6 +22,7 @@ class TaskModel {
     this.isCompleted,
     this.name,
     this.translatedDescription,
+    this.translatedName,
     this.userId,
   });
 

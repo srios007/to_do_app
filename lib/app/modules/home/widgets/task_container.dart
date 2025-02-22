@@ -40,6 +40,7 @@ class TaskContainer extends StatelessWidget {
                 task.isCompleted!.value = value ?? false;
                 controller.updateTask(task);
               })),
+          const Spacer(),
           SizedBox(
             width: Get.width - 140,
             child: Column(
@@ -49,14 +50,23 @@ class TaskContainer extends StatelessWidget {
                   task.name!,
                   style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
+                const SizedBox(height: 5),
                 Text(
                   task.description!,
                   style: const TextStyle(fontWeight: FontWeight.w400),
                 ),
+                const Divider(),
+                
+                Text(
+                  task.translatedName ?? '',
+                  style: const TextStyle(fontWeight: FontWeight.w600),
+                ),
+                const SizedBox(height: 5),
                 Text(
                   task.translatedDescription ?? '',
                   style: const TextStyle(fontWeight: FontWeight.w400),
                 ),
+                const SizedBox(height: 10),
                 Text(
                   DateFormat('kk:mm  dd/MM/yyyy').format(task.createdAt!),
                   style: const TextStyle(
@@ -67,6 +77,7 @@ class TaskContainer extends StatelessWidget {
               ],
             ),
           ),
+          const SizedBox(width: 10),
           InkWell(
             onTap: () => controller.deleteTask(task.id!),
             child: const Icon(Icons.delete_outline, color: Colors.redAccent),
