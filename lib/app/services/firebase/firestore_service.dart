@@ -86,4 +86,16 @@ class FirestoreService extends GetxService {
       return [];
     }
   }
+
+  /// Get documents by field as a stream
+  Stream<QuerySnapshot> getCollectionByFieldStream({
+    required String collectionName,
+    required String field,
+    required String value,
+  }) {
+    return _firestore
+        .collection(collectionName)
+        .where(field, isEqualTo: value)
+        .snapshots();
+  }
 }

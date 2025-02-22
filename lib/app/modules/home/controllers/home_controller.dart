@@ -22,11 +22,12 @@ class HomeController extends GetxController {
     AppLocalizations.of(Get.context!)!.latest,
     AppLocalizations.of(Get.context!)!.older,
   ];
+
   @override
   void onInit() {
     super.onInit();
     getUser();
-    getTasks();
+    listenToTasks();
   }
 
   /// Trae el usuario que inicia sesión
@@ -36,14 +37,15 @@ class HomeController extends GetxController {
     );
   }
 
-  /// Trae las tareas del usuario
-  Future<void> getTasks() async {
+  /// Escucha los cambios en las tareas del usuario
+  void listenToTasks() {
     isLoading.value = true;
-    tasks.clear();
-    tasks.value = await taskService.getTasksByUserId(
-      authService.firebaseUser.value!.uid,
-    );
-    isLoading.value = false;
+    taskService
+        .getTasksByUserId(authService.firebaseUser.value!.uid)
+        .listen((taskList) {
+      tasks.value = taskList;
+      isLoading.value = false;
+    });
   }
 
   /// Filtra las tareas por estado
@@ -81,12 +83,10 @@ class HomeController extends GetxController {
   /// Navega a la pantalla de creación de tareas
   Future<void> goToCreate() async {
     await Get.toNamed(Routes.NEW_TASK);
-    getTasks();
   }
 
   /// Actualiza las tareas
   Future<void> refreshTasks() async {
     filter.value = AppLocalizations.of(Get.context!)!.all;
-    getTasks();
   }
 }

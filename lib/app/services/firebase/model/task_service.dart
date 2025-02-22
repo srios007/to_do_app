@@ -29,13 +29,18 @@ class TaskService extends GetxService {
     return _firestoreService.deleteDocument(taskReference, id);
   }
 
-  /// Get tasks for a specific user
-  Future<List<TaskModel>> getTasksByUserId(String userId) async {
-    final querySnapshot = await _firestoreService.getCollectionById(
+  /// Get tasks for a specific user as a stream
+  Stream<List<TaskModel>> getTasksByUserId(String userId) {
+    return _firestoreService
+        .getCollectionByFieldStream(
       collectionName: taskReference,
-      value: userId,
       field: 'userId',
-    );
-    return querySnapshot.map((doc) => TaskModel.fromJson(doc)).toList();
+      value: userId,
+    )
+        .map((querySnapshot) {
+      return querySnapshot.docs
+          .map((doc) => TaskModel.fromJson(doc.data()! as Map<String, dynamic>))
+          .toList();
+    });
   }
 }
