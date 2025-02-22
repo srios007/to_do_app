@@ -57,6 +57,7 @@ class NewTaskView extends GetView<NewTaskController> {
     return NormalInput(
       textEditingController: controller.descriptionController,
       titleText: AppLocalizations.of(context)!.description,
+      maxLines: 6,
     );
   }
 }
