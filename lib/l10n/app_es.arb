@@ -20,7 +20,7 @@
   "no_task": "No hay tareas para mostrar",
   "no_user_found": "No se encontró un usuario con ese correo electrónico.",
   "notCompleted": "No completadas",
-  "older": "Older tasks",
+  "older": "Más antiguas",
   "password_hint": "Escribe tu contraseña",
   "password_reset_email_sent": "Correo electrónico de restablecimiento de contraseña enviado",
   "password": "Contraseña",
@@ -36,6 +36,7 @@
   "success": "Éxito",
   "tasks": "Tareas",
   "title": "Título",
+  "translated_from": "Traducido del español por Google",
   "unknown_error": "Ocurrió un error desconocido.",
   "weak_password": "La contraseña proporcionada es demasiado débil.",
   "wrong_password": "Por favor, revisa tu correo y contraseña."
