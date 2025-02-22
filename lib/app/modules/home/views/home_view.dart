@@ -46,7 +46,7 @@ class HomeView extends GetView<HomeController> {
                         child: const LoadingWidget(),
                       ),
                       Visibility(
-                        visible: controller.tasks.isEmpty &&
+                        visible: controller.filterTasks().isEmpty &&
                             !controller.isLoading.value,
                         child: Expanded(
                           child: Center(
