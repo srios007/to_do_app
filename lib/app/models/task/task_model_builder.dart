@@ -8,6 +8,7 @@ class TaskModelBuilder {
   String? _description;
   String? _id;
   String? _name;
+  String? _translatedText;
   String? _userId;
 
   TaskModelBuilder setCreatedAt(DateTime createdAt) {
@@ -41,6 +42,11 @@ class TaskModelBuilder {
     return this;
   }
 
+  TaskModelBuilder setTranslatedText(String translatedText) {
+    _translatedText = translatedText;
+    return this;
+  }
+
   TaskModel build() {
     return TaskModel(
       createdAt: _createdAt,
@@ -49,6 +55,7 @@ class TaskModelBuilder {
       description: _description,
       isCompleted: _isCompleted,
       userId: _userId,
+      translatedText: _translatedText,
     );
   }
 }

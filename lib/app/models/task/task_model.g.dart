@@ -14,14 +14,16 @@ TaskModel _$TaskModelFromJson(Map<String, dynamic> json) => TaskModel(
       createdAt: json['createdAt'] == null
           ? null
           : DateTime.parse(json['createdAt'] as String),
+      translatedText: json['translatedText'] as String?,
       userId: json['userId'] as String?,
     );
 
 Map<String, dynamic> _$TaskModelToJson(TaskModel instance) => <String, dynamic>{
       'createdAt': instance.createdAt?.toIso8601String(),
-      'id': instance.id,
-      'name': instance.name,
       'description': instance.description,
+      'id': instance.id,
       'isCompleted': instance.isCompleted!.value,
+      'name': instance.name,
+      'translatedText': instance.translatedText,
       'userId': instance.userId,
     };

@@ -53,8 +53,9 @@ class TaskContainer extends StatelessWidget {
                   task.description!,
                   style: const TextStyle(fontWeight: FontWeight.w400),
                 ),
+                
                 Text(
-                  DateFormat('dd/MM/yyyy kk:mm').format(task.createdAt!),
+                  DateFormat('kk:mm  dd/MM/yyyy').format(task.createdAt!),
                   style: const TextStyle(
                     fontWeight: FontWeight.w300,
                     fontSize: 12,
