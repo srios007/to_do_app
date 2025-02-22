@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 import '../../../models/models.dart';
+import '../../../utils/utils.dart';
 import '../../modules.dart';
 
 class TaskContainer extends StatelessWidget {
@@ -55,8 +57,17 @@ class TaskContainer extends StatelessWidget {
                   task.description!,
                   style: const TextStyle(fontWeight: FontWeight.w400),
                 ),
-                const Divider(),
-                
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Text(
+                    AppLocalizations.of(context)!.translated_from,
+                    style: const TextStyle(
+                      color: Palette.mainColor,
+                      fontWeight: FontWeight.w300,
+                      fontSize: 12,
+                    ),
+                  ),
+                ),
                 Text(
                   task.translatedName ?? '',
                   style: const TextStyle(fontWeight: FontWeight.w600),
