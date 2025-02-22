@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
 import '../../../models/models.dart';
 import '../../modules.dart';
@@ -39,21 +40,28 @@ class TaskContainer extends StatelessWidget {
                 task.isCompleted!.value = value ?? false;
                 controller.updateTask(task);
               })),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                task.name!,
-                style: const TextStyle(fontWeight: FontWeight.w600),
-              ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width - 140,
-                child: Text(
-                  task.description!,
-                  style: const TextStyle(fontWeight: FontWeight.w300),
+          SizedBox(
+            width: Get.width - 140,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  task.name!,
+                  style: const TextStyle(fontWeight: FontWeight.w600),
                 ),
-              ),
-            ],
+                Text(
+                  task.description!,
+                  style: const TextStyle(fontWeight: FontWeight.w400),
+                ),
+                Text(
+                  DateFormat('dd/MM/yyyy kk:mm').format(task.createdAt!),
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w300,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
           ),
           InkWell(
             onTap: () => controller.deleteTask(task.id!),
