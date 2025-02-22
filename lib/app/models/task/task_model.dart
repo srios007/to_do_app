@@ -11,9 +11,8 @@ class TaskModel {
   String? description;
   String? id;
   String? name;
-  String? translatedText;
+  String? translatedDescription;
   String? userId;
-
 
   TaskModel({
     this.createdAt,
@@ -21,7 +20,7 @@ class TaskModel {
     this.id,
     this.isCompleted,
     this.name,
-    this.translatedText,
+    this.translatedDescription,
     this.userId,
   });
 

@@ -55,7 +55,7 @@ class TaskModelBuilder {
       description: _description,
       isCompleted: _isCompleted,
       userId: _userId,
-      translatedText: _translatedText,
+      translatedDescription: _translatedText,
     );
   }
 }
