@@ -3,7 +3,7 @@
   "app_title": "To Do App",
   "completed": "Completed",
   "create_task_button": "Create",
-  "create_task": "Create task",
+  "create_task": "New task",
   "description": "Description",
   "email_hint": "Enter your email",
   "email_in_use": "The email address is already in use by another account.",
