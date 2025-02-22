@@ -10,7 +10,7 @@ const translate = new Translate();
 
 // Detecta cuando se crea un documento en la colección tasks
 export const translateTask = functions.firestore
-  .document("tasks/{taskId}") 
+  .document("tasks/{taskId}")
   .onCreate(async (snap, context) => {
     const task = snap.data();
     if (!task || !task.description) {
