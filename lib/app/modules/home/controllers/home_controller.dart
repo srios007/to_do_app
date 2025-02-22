@@ -58,9 +58,9 @@ class HomeController extends GetxController {
           when value == AppLocalizations.of(Get.context!)!.notCompleted:
         return tasks.where((task) => !task.isCompleted!.value).toList();
       case final value when value == AppLocalizations.of(Get.context!)!.latest:
-        return tasks..sort((a, b) => a.createdAt!.compareTo(b.createdAt!));
-      case final value when value == AppLocalizations.of(Get.context!)!.older:
         return tasks..sort((a, b) => b.createdAt!.compareTo(a.createdAt!));
+      case final value when value == AppLocalizations.of(Get.context!)!.older:
+        return tasks..sort((a, b) => a.createdAt!.compareTo(b.createdAt!));
       default:
         return tasks;
     }
