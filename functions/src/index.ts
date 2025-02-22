@@ -22,8 +22,8 @@ export const translateTask = functions.firestore
       // Traduce el texto de español al inglés
       const [translation] = await translate.translate(task.description, "en");
 
-      // Guardar la traducción en Firestore en le campo translatedText
-      await snap.ref.update({translatedText: translation});
+      // Guardar la traducción en Firestore en le campo translatedDescription
+      await snap.ref.update({translatedDescription: translation});
 
       console.log(`Texto traducido: ${task.description} → ${translation}`);
       return null;
