@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:to_do_app/app/widgets/inputs/password_input.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   testWidgets('PasswordInput displays password label and hint', (WidgetTester tester) async {

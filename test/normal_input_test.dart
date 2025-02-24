@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:get/get.dart';
 import 'package:to_do_app/app/widgets/inputs/normal_input.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() {
   testWidgets('NormalInput displays title and hint', (WidgetTester tester) async {
